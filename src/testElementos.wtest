@@ -1,0 +1,49 @@
+import Elementos.*
+import Plagas.*
+
+test "Hogar" {
+	
+	const hogar1 = new Hogar(mugre = 20, confort = 12)
+	const garrapata1 = new Garrapatas(poblacion = 10, pesoPromedio = 5)
+	assert.equals(false, hogar1.esBueno())
+	hogar1.ataqueDe_(garrapata1)
+	assert.equals(30, hogar1.mugre())
+	
+	const hogar2 = new Hogar(mugre = 10, confort = 20)
+	const garrapata2 = new Garrapatas(poblacion = 5, pesoPromedio = 5)
+	assert.equals(true, hogar2.esBueno())
+	hogar2.ataqueDe_(garrapata2)
+	assert.equals(15, hogar2.mugre())
+}
+
+test "Huerta" {
+	
+	const huerta1 = new Huerta(capacidadDeProduccion = 10)
+	const cucaracha1 = new Cucarachas(poblacion = 12, pesoPromedio = 5)
+	assert.equals(false, huerta1.esBueno())
+	huerta1.ataqueDe_(cucaracha1)
+	assert.equals(0, huerta1.capacidadDeProduccion())
+	
+	const huerta2 = new Huerta(capacidadDeProduccion = 30)
+	const cucaracha2 = new Cucarachas(poblacion = 6, pesoPromedio = 5)
+	assert.equals(true, huerta2.esBueno())
+	huerta2.ataqueDe_(cucaracha2)
+	assert.equals(29.7, huerta2.capacidadDeProduccion())
+
+}
+
+test "Mascota" {
+
+	const mascota1 = new Mascota(salud = 300)
+	const mosquitos1 = new Mosquitos(poblacion = 22, pesoPromedio = 2)
+	assert.equals(true, mascota1.esBueno())
+	mascota1.ataqueDe_(mosquitos1)
+	assert.equals(278, mascota1.salud())
+	
+	const mascota2 = new Mascota(salud = 200)
+	const mosquitos2 = new Mosquitos(poblacion = 400, pesoPromedio = 2)
+	assert.equals(false, mascota2.esBueno())
+	mascota2.ataqueDe_(mosquitos2)
+	assert.equals(0, mascota2.salud())
+
+}

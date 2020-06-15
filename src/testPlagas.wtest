@@ -1,0 +1,42 @@
+import Plagas.*
+import Elementos.*
+
+test "Cucarachas" {
+
+	const cucarachas = new Cucarachas(poblacion = 27, pesoPromedio = 10)
+	const hogar = new Hogar(mugre = 20, confort = 50)
+	
+	cucarachas.ataqueA_(hogar)
+	assert.equals(29.7, cucarachas.poblacion())
+	assert.equals(12, cucarachas.pesoPromedio())
+}
+
+test "Pulgas" {
+	
+	const pulgas = new Pulgas(poblacion = 10, pesoPromedio = 2)
+	const mascota = new Mascota(salud = 300)
+ 
+ 	pulgas.ataqueA_(mascota)
+	assert.equals(11 , pulgas.poblacion())
+ 
+}
+
+test "Garrapatas" {
+	
+	const garrapatas = new Garrapatas(poblacion = 3, pesoPromedio = 58)
+	const mascota1 = new Mascota(salud = 20)
+	
+	garrapatas.ataqueA_(mascota1)
+	assert.equals(3.6, garrapatas.poblacion())
+
+}
+
+test "Mosquitos" {
+
+	const mosquitos = new Mosquitos(poblacion = 50, pesoPromedio = 10)
+	const huerta = new Huerta(capacidadDeProduccion = 10)
+	
+	mosquitos.ataqueA_(huerta)
+	assert.equals(55, mosquitos.poblacion())
+
+}
